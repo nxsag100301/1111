@@ -1,0 +1,88 @@
+﻿@model DATN_Ecommerce.Models.Page
+
+@{
+    ViewData["Title"] = "Thông tin Page" + Model.PageName;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <a class=" breadcrumd-item" asp-area="Admin" asp-controller="AdminPages" asp-action="Index">Danh sách page</a>
+            <span class="breadcrumb-item active">Thông tin Page : @Model.PageName</span>
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Thông tin Page : @Model.PageName</h4>
+        <div class="table-responsive">
+            <table class="product-info-table m-t-20">
+                <tbody>
+                    <tr>
+                        <td>ID:</td>
+                        <td class="text-dark font-weight-semibold">@Model.PageId</td>
+                    </tr>
+                    <tr>
+                        <td>Tên Page:</td>
+                        <td>@Model.PageName</td>
+                    </tr>
+                    <tr>
+                        <td>Title:</td>
+                        <td>@Model.Title</td>
+                    </tr>
+                    <tr>
+                        <td>Mô tả</td>
+                        <td>@Model.Contents</td>
+                    </tr>
+                    <tr>
+                        <td>Alias:</td>
+                        <td>@Model.Alias</td>
+                    </tr>
+                    <tr>
+                        <td>Ordering</td>
+                        <td>@Model.Ordering</td>
+                    </tr>
+                    <tr>
+                        <td>Public</td>
+                        <td>
+                            @if (Model.Published)
+                            {
+                                <div class="form-group d-flex align-items-center">
+                                    <div class="switch m-r-10">
+                                        <input type="checkbox" id="switch-3" checked="">
+                                        <label for="switch-1"></label>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group d-flex align-items-center">
+                                    <div class="switch m-r-10">
+                                        <input type="checkbox" id="switch-3">
+                                        <label for="switch-2"></label>
+                                    </div>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>MetaDesc:</td>
+                        <td>@Model.MetaDesc</td>
+                    </tr>
+                    <tr>
+                        <td>MetaKey:</td>
+                        <td>@Model.MetaKey</td>
+                    </tr>
+                    <tr>
+                        <td>Ảnh đại diện:</td>
+                        <td>
+                            <img width="200" height="200" src="~/images/pages/@Model.Thumb" alt="@Model.Title" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
